@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binar List Cars</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css"></head>
+<body>
+    
+    <div id="cars-page" class="container-fluid">
+        <div id="cars" class="row">
+             <!-- Start Side -->
+             <div id="side-bar" class="col-1">
+                <div class="col text-center" style="padding-bottom: 30px;">
+                    <img src="../assets/logo.png" style="height: 34px;" alt="">
+                </div>
+                <div class="col text-center">
+                    <img src="../assets/home.png" alt="">
+                    <p>Dashboard</p>
+                </div>
+                <div class="col text-center">
+                    <img src="../assets/boxCar.png" alt="">
+                    <p>Cars</p>
+                </div>
+            </div>
+            <!-- End Side -->
+            
+            <div class="col-11">
+                <!-- Start Navbar -->
+                <nav id="top-nav" class="navbar navbar-expand-lg navbar-light shadow-sm">
+                    <div class="container-fluid">
+                      <a href="#"><img src="../assets/Rectangle.png" style="height: 34px; padding-right: 140px;" alt=""></a>
+                      <img src="../assets/strip.png" alt="">
+                      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                      </button>
+                      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        </ul>
+                        <form class="d-flex" action="/find" method="POST">
+                          <input class="form-control me-2" name="name" type="search" placeholder="Search" aria-label="Search">
+                          <button class="btn btn-outline-primary" type="submit">Search</button>
+                        </form>
+                        <a href=""><img src="../assets/Ellipse.png" style="height: 38px;" class="px-2" alt=""></a>
+                        <div>
+                          <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-user" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Shifly Inner Beauty
+                            </a>
+                          </li>
+                        </div>
+                      </div>
+                    </div>
+                </nav>
+                <!-- End Navbar -->
+
+                <div id="side-nav" class="row">            
+                    <div class="col-2">
+                        <div class="list-group" id="list-tab" role="tablist">
+                            <a class="list-group-item list-group-item-action" id="list-home-list" data-bs-toggle="list" href="#list-home" role="tab" aria-controls="home">CARS</a>
+                            <a class="list-group-item list-group-item-action active" id="list-profile-list" data-bs-toggle="list" href="#list-profile" role="tab" aria-controls="profile">List Cars</a>
+                        </div>
+                    </div>
+                    <!-- Start Main -->
+                    <div id="content" class="col-10" >
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+                                <h1>CARS</h1>
+                            </div>
+                            <div class="tab-pane fade show active" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+                                <div id="top-ref" class="mx-3 my-4 d-flex align-items-center align-center">
+                                    <a href="">Cars</a>
+                                    <img src="../assets/next.png" alt="" style="width: 15px; height: fit-content;">
+                                    <a href="/">List Car</a>
+                                    <img src="../assets/next.png" alt="" style="width: 15px; height: fit-content;">
+                                    <a class="active" href="">Add New Car</a>
+                                </div>
+                                
+                                <div class="ms-3 d-flex justify-content-between">
+                                    <h2>Add New Car</h2>
+                                </div>
+                                
+                                <form action="/api/postCar" method="POST" class="p-3 my-3" enctype="multipart/form-data">
+                                    <div class="d-flex align-items-center my-3">
+                                        <span class="input-label ms-3" id="inputGroup-sizing-default">Nama</span>
+                                        <input name="name" type="text" class="form-control input-field" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Avanza" required>
+                                    </div>
+                                    <div class="d-flex align-items-center mb-3">
+                                        <span class="input-label ms-3" id="inputGroup-sizing-default">Sewa Per Hari</span>
+                                        <input name="rent" type="text" class="form-control input-field" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Rp.0,-" required>
+                                    </div>
+                                    <div class="d-flex align-items-center mb-3">
+                                        <span class="input-label ms-3" id="inputGroup-sizing-default">Ukuran</span>
+                                        <select name="size" type="text" class="form-select input-field" aria-label="Default select example" aria-describedby="inputGroup-sizing-default" required>
+                                            <option value="Small" selected>Small</option>
+                                            <option value="Medium">Medium</option>
+                                            <option value="Large">Large</option>
+                                        </select>
+                                    </div>
+                                    <div class="d-flex align-items-center mb-3">
+                                        <span class="input-label ms-3" id="inputGroup-sizing-default">Foto</span>
+                                        <input type="file" name="img" class="form-control input-field"/>
+                                    </div>
+                                    <div class="d-flex flex-row">
+                                        <a href="/" class="btn m-1 d-flex btn-cancel">Cancel</a>
+                                        <button type="submit" href="#" class="btn m-1 btn-primary d-flex btn-save">Save</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Main -->
+                </div>
+            </div>            
+        </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
